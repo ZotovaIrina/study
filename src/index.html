@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="dashboard">
+<head>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Study application</title>
+</head>
+<body>
+<div ui-view="content"></div>
+
+<ul>
+    <li>
+        <a ui-sref="dashboard">dashboard</a>
+    </li>
+<li>
+    <a ui-sref="secondPage">secondPage</a>
+</li>
+</ul>
+
+
+<!--<script type="text/javascript" src="cordova.js"></script>-->
+<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="build.js"></script>
+</body>
+</html>

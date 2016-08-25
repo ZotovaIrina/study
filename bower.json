@@ -1,0 +1,14 @@
+{
+  "name": "study-application",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Irina Zotova"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1"
+  }
+}
