@@ -1,15 +1,26 @@
-angular.module('dashboard')
-    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+(function () {
+    'use strict';
+
+    angular
+        .module('dashboard')
+        .config(DashboardRouter);
+
+    function DashboardRouter($stateProvider, $urlRouterProvider) {
+
         $stateProvider
             .state('dashboard', {
                 url: '/',
                 views: {
                     'content': {
-                        templateUrl: './template/dashboard.html',
+                        templateUrl: './template/modules/dashboard/dashboard/dashboard.html',
                         controller: 'DashboardCtrl'
                     }
                 }
             });
 
         $urlRouterProvider.otherwise('/');
-    }]);
+
+    }
+
+})();
+

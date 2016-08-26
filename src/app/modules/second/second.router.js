@@ -1,14 +1,24 @@
-angular.module('second')
-    .config(function ($stateProvider) {
+(function () {
+    'use strict';
+
+    angular
+        .module('second')
+        .config(SecondRouter);
+
+    function SecondRouter($stateProvider) {
+
         $stateProvider
             .state('secondPage', {
                 url: '/secondPage',
                 views: {
                     'content': {
-                        templateUrl: './template/secondPage.html',
+                        templateUrl: './template/modules/second/second/secondPage.html',
                         controller: 'SecondCtrl'
                     }
                 }
 
             });
-    });
+
+    }
+
+})();
