@@ -1,54 +1,78 @@
 'use strict';
 
 const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
-const jshint = require('gulp-jshint');
-const stylish = require('jshint-stylish');
-const watch = require('gulp-watch');
-const concat = require('gulp-concat');
-const del = require('del');
-const debug = require('gulp-debug');
 
+function requireTask(taskName, path, options) {
+    options = options || {};
+    options.taskName = taskName;
+    gulp.task(taskName, function(callback) {
+        var task = require(path).call(this, options);
+        return task(callback);
+        })
+}
 
-gulp.task('jshint', function () {
-    return gulp.src('./src/js/**/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter(stylish))
-        .pipe(jshint.reporter('fail'));
+requireTask('sass', './gulpTask/sass', {
+    src: './src/assets/sass/**/*.scss',
+    dest: './public/www/css/'
 });
 
-gulp.task('sass', function () {
-    return gulp.src('./src/assets/sass/**/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./public/www/css/'));
+requireTask('jshint', './gulpTask/jshint', {
+    src: './src/app/**/*.js'
 });
 
-gulp.task('clean', function () {
-    return del(['./public/www/**']);
+requireTask('sass:min', './gulpTask/sassMin', {
+    src: './src/assets/sass/**/*.scss',
+    dest: './public/www/css/'
 });
 
-gulp.task('concat', function () {
-    return gulp.src('./src/app/**/*.js')
-        .pipe(concat('build.js'))
-        .pipe(gulp.dest('./public/www/'));
+requireTask('clean', './gulpTask/clean', {
+    src: './public/www/**'
 });
 
-gulp.task('copy:template', function () {
-    return gulp.src(['./src/index.html', './src/app/**/*.html'])
-        .pipe(gulp.dest(function(file) {
-            return file.basename === 'index.html' ? './public/www/' : './public/www/template'
-        }));
+requireTask('concat', './gulpTask/concat', {
+    src: './src/app/**/*.js',
+    fileName: 'build.js',
+    dest: './public/www/'
 });
 
-gulp.task('watch', function() {
+requireTask('concat:min', './gulpTask/concatMin', {
+    src: './src/app/**/*.js',
+    fileName: 'build.min.js',
+    dest: './public/www/'
+});
+
+requireTask('copy:template', './gulpTask/copy', {
+    src: ['./src/index.html', './src/app/**/*.html'],
+    dest: function (file) {
+        return file.basename === 'index.html' ? './public/www/' : './public/www/template'
+    }
+});
+
+requireTask('bower', './gulpTask/bower', {
+    src: '**/*.js',
+    fileName: 'vendor.min.js',
+    dest: "./public/www/"
+});
+
+requireTask('htmlreplace', './gulpTask/htmlreplace', {
+    src: './src/index.html',
+    replace: {
+        'css': 'css/index.min.css',
+        'js': 'build.min.js'
+    },
+    dest: './public/www/'
+});
+
+requireTask('serve', './gulpTask/serve', {
+    server: './public/www/',
+    watch: './public/www/**/*.*'
+});
+
+gulp.task('watch', function () {
     gulp.watch(['./src/index.html', './src/app/**/*.html'], gulp.series('copy:template'));
     gulp.watch('./src/app/**/*.js', gulp.series('build'));
     gulp.watch('./src/assets/sass/**/*.scss', gulp.series('sass'));
 });
-
 
 
 gulp.task('build', gulp.series(
@@ -56,11 +80,26 @@ gulp.task('build', gulp.series(
     'concat'
 ));
 
-gulp.task('public', gulp.series(
-    'clean',
-    gulp.parallel('sass', 'build', 'copy:template')
+gulp.task('build:min', gulp.series(
+    'jshint',
+    'concat:min'
 ));
 
-gulp.task('dev', gulp.series('public', 'watch'));
+gulp.task('public', gulp.series(
+    'clean',
+    gulp.parallel('sass', 'build', 'copy:template', 'bower')
+));
+
+gulp.task('public:min', gulp.series(
+    'clean',
+    gulp.parallel('sass:min', 'build:min', 'copy:template', 'bower'),
+    'htmlreplace'
+));
+
+gulp.task('dev', gulp.series('public',
+    gulp.parallel(
+        'watch',
+        'serve')
+));
 
 

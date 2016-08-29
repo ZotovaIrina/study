@@ -7,7 +7,7 @@
 
     function SecondCtrl() {
 
-        console.log('SecondCtrl!');
+        console.log('SecondCtrl');
 
     }
 
