@@ -2,12 +2,13 @@
     'use strict';
 
     angular
-        .module('dashboard')
+        .module('app.dashboard')
         .config(DashboardRouter);
 
     function DashboardRouter($stateProvider, $urlRouterProvider) {
-
+        console.log("Dashboard router");
         $stateProvider
+
             .state('dashboard', {
                 url: '/',
                 views: {

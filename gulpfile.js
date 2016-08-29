@@ -47,6 +47,10 @@ requireTask('copy:template', './gulpTask/copy', {
         return file.basename === 'index.html' ? './public/www/' : './public/www/template'
     }
 });
+requireTask('copy:static', './gulpTask/copy', {
+    src: './src/assets/**/*.{json,jpg}',
+    dest: './public/www/assets'
+});
 
 requireTask('bower', './gulpTask/bower', {
     src: '**/*.js',

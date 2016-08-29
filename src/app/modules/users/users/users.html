@@ -1,0 +1,12 @@
+<div>
+    <h1>List of users</h1>
+    <div ng-repeat="user in users"
+         class="user-card">
+<h3>{{user.userName}}</h3>
+        <button ng-click="userEdit(user.id)">Edit</button>
+        <button ng-click="userDelete(user.id)">Delete</button>
+    </div>
+    <div>
+        <button ui-sref="users.newUser">Add</button>
+    </div>
+</div>

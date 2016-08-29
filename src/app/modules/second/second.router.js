@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('second')
+        .module('app.second')
         .config(SecondRouter);
 
     function SecondRouter($stateProvider) {

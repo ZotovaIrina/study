@@ -11,7 +11,6 @@ module.exports =  function (options) {
                 errorHandler: $.notify.onError()
             }))
             .pipe($.sourcemaps.init())
-            .pipe($.ngAnnotate())
             .pipe($.concat(options.fileName))
             .pipe($.sourcemaps.write())
             .pipe(gulp.dest(options.dest));

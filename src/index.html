@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="dashboard">
+<html ng-app="app">
 <head>
     <meta http-equiv="Content-Security-Policy"
           content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
@@ -15,17 +15,20 @@
     <title>Study application</title>
 </head>
 <body>
-<div ui-view="content"></div>
 
 <ul>
     <li>
         <a ui-sref="dashboard">Dashboard</a>
     </li>
-<li>
-    <a ui-sref="secondPage">second Page</a>
-</li>
+    <li>
+        <a ui-sref="secondPage">second Page</a>
+    </li>
+    <li>
+        <a ui-sref="users">List of users</a>
+    </li>
 </ul>
 
+<div ui-view="content"></div>
 
 <!--<script type="text/javascript" src="cordova.js"></script>-->
 <script type="text/javascript" src="vendor.min.js"></script>

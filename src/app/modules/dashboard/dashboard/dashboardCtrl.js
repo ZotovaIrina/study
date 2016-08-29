@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('dashboard')
+        .module('app.dashboard')
         .controller('DashboardCtrl', DashboardCtrl);
 
     function DashboardCtrl() {

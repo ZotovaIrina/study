@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('second')
+        .module('app.second')
         .controller('SecondCtrl', SecondCtrl);
 
     function SecondCtrl() {
