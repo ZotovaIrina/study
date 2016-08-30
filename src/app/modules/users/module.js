@@ -14,6 +14,9 @@
                     'content': {
                         templateUrl: './template/modules/users/users/template.html',
                         controller: 'UsersCtrl'
+                    },
+                    'navigation': {
+                        templateUrl: './template/modules/navigation/template.html'
                     }
                 }
 
@@ -21,7 +24,7 @@
             .state('users.create', {
                 url: '/users/create',
                 views: {
-                    'content@': {
+                    'content': {
                         templateUrl: './template/modules/users/create/template.html',
                         controller: 'CreateCtrl'
                     }
@@ -31,7 +34,7 @@
             .state('users.update', {
                 url: '/users/update/:id',
                 views: {
-                    'content@': {
+                    'content': {
                         templateUrl: './template/modules/users/update/template.html',
                         controller: 'UpdateCtrl'
                     }

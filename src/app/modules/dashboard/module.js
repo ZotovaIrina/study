@@ -14,6 +14,9 @@
                     'content': {
                         templateUrl: './template/modules/dashboard/dashboard/template.html',
                         controller: 'Dashboard'
+                    },
+                    'navigation': {
+                        templateUrl: './template/modules/navigation/template.html'
                     }
                 }
             });
@@ -23,4 +26,3 @@
     }
 
 })();
-

@@ -1,3 +1,8 @@
-@import "config";
-@import "page";
-@import "users";
+@import "helpers/_variables";
+@import "themes/_red";
+@import "helpers/_heading";
+@import "components/_error";
+@import "pages/_users";
+@import "pages/_guitar";
+@import "layout/_header";
+@import "layout/_footer";

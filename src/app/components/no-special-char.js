@@ -3,14 +3,14 @@
 
     angular
         .module('app.users')
-    .directive('noSpecialChar', Directive);
+        .directive('noSpecialChar', Directive);
 
     function Directive() {
         return {
             require: 'ngModel',
             restrict: 'A',
-            link: function(scope, element, attrs, modelCtrl) {
-                modelCtrl.$parsers.push(function(inputValue) {
+            link: function (scope, element, attrs, modelCtrl) {
+                modelCtrl.$parsers.push(function (inputValue) {
                     if (inputValue == null) {
                         return '';
                     }

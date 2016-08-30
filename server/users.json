@@ -3,56 +3,32 @@
     {
       "id": 0,
       "userName": "User One",
-      "email": "111@gmail.com",
-      "images": [
-        "Chrysanthemum.jpg",
-        "Desert.jpg"
-      ]
+      "email": "111@gmail.com"
     },
     {
       "id": 1,
       "userName": "User Two",
-      "email": "222@gmail.com",
-      "images": [
-        "Hydrangeas.jpg",
-        "Jellyfish.jpg"
-      ]
+      "email": "222@gmail.com"
     },
     {
       "id": 2,
       "userName": "User Tree",
-      "email": "333@gmail.com",
-      "images": [
-        "Koalla.jpg",
-        "Lighthouse.jpg"
-      ]
+      "email": "333@gmail.com"
     },
     {
       "id": 3,
       "userName": "User Four",
-      "email": "444@gmail.com",
-      "images": [
-        "Pinguins.jpg",
-        "Tulips.jpg"
-      ]
+      "email": "444@gmail.com"
     },
     {
       "id": 4,
       "userName": "User Five",
-      "email": "555@gmail.com",
-      "images": [
-        "Pinguins.jpg",
-        "Tulips.jpg"
-      ]
+      "email": "555@gmail.com"
     },
     {
       "id": 5,
       "userName": "New User",
-      "email": "new@gmail.com",
-      "images": [
-        "Chrysanthemum.jpg",
-        "Desert.jpg"
-      ]
+      "email": "new@gmail.com"
     },
     {
       "id": 6,

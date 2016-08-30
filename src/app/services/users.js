@@ -5,14 +5,13 @@
         .module('app.services')
         .service('Users', User);
 
-    function User($http, $q, API_BASE_URL) {
+    function User($http, API_BASE_URL) {
 
         var SERVICE_BASE_URL = API_BASE_URL + 'users';
 
         this.getAllUser = function () {
             return $http.get(SERVICE_BASE_URL);
         };
-
 
         this.getUser = function (id) {
             return $http.get(SERVICE_BASE_URL + '/' + id);
