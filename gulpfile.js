@@ -11,54 +11,54 @@ function requireTask(taskName, path, options) {
         })
 }
 
-requireTask('sass', './gulp/sass', {
+requireTask('sass', './gulpTask/sass', {
     src: './src/assets/sass/**/*.scss',
     dest: './public/www/css/'
 });
 
-requireTask('jshint', './gulp/jshint', {
+requireTask('jshint', './gulpTask/jshint', {
     src: './src/app/**/*.js'
 });
 
-requireTask('sass:min', './gulp/sassMin', {
+requireTask('sass:min', './gulpTask/sassMin', {
     src: './src/assets/sass/**/*.scss',
     dest: './public/www/css/'
 });
 
-requireTask('clean', './gulp/clean', {
+requireTask('clean', './gulpTask/clean', {
     src: './public/www/**'
 });
 
-requireTask('concat', './gulp/concat', {
+requireTask('concat', './gulpTask/concat', {
     src: './src/app/**/*.js',
     fileName: 'build.js',
     dest: './public/www/'
 });
 
-requireTask('concat:min', './gulp/concatMin', {
+requireTask('concat:min', './gulpTask/concatMin', {
     src: './src/app/**/*.js',
     fileName: 'build.min.js',
     dest: './public/www/'
 });
 
-requireTask('copy:template', './gulp/copy', {
+requireTask('copy:template', './gulpTask/copy', {
     src: ['./src/index.html', './src/app/**/*.html'],
     dest: function (file) {
         return file.basename === 'index.html' ? './public/www/' : './public/www/template'
     }
 });
-requireTask('copy:static', './gulp/copy', {
+requireTask('copy:static', './gulpTask/copy', {
     src: './src/assets/**/*.{json,jpg}',
     dest: './public/www/assets'
 });
 
-requireTask('bower', './gulp/bower', {
+requireTask('bower', './gulpTask/bower', {
     src: '**/*.js',
     fileName: 'vendor.min.js',
     dest: "./public/www/"
 });
 
-requireTask('htmlreplace', './gulp/htmlreplace', {
+requireTask('htmlreplace', './gulpTask/htmlreplace', {
     src: './src/index.html',
     replace: {
         'css': 'css/index.min.css',
@@ -67,12 +67,12 @@ requireTask('htmlreplace', './gulp/htmlreplace', {
     dest: './public/www/'
 });
 
-requireTask('serve', './gulp/serve', {
+requireTask('serve', './gulpTask/serve', {
     server: './public/www/',
     watch: './public/www/**/*.*'
 });
 
-requireTask('jsonServer', './gulp/jsonServer', {
+requireTask('jsonServer', './gulpTask/jsonServer', {
     server: './server/users.json',
     port: 2500
 });
