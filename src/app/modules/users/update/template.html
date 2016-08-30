@@ -1,18 +1,40 @@
-<div>
+<div xmlns="http://www.w3.org/1999/html">
     <h1>Update user</h1>
-    <form>
+    <form name="updateForm" ng-submit="update()">
         <label>
             <input type="text"
+                   name="userName"
                    ng-model="user.userName"
-                   placeholder="User Name">
+                   placeholder="User Name"
+                   no-special-char
+                   required>
             User Name
         </label>
+        <br>
+        <span class="error"
+              ng-show="updateForm.userName.$error.required">
+            Required user Name
+        </span>
+        <br>
         <label>
-            <input type="text"
+            <input type="email"
+                   name="email"
                    ng-model="user.email"
-                   placeholder="E-mail">
+                   placeholder="E-mail"
+                   required>
             E-mail
         </label>
-        <button ng-click="update()">Update</button>
+        <br>
+        <span class="error"
+              ng-show="updateForm.email.$error.required">
+            Required E-mail
+        </span>
+        <span class="error" ng-show="updateForm.email.$error.email">
+            Not valid email
+        </span>
+        <br>
+        <button ng-disabled="updateForm.$invalid"
+                type="submit">Update
+        </button>
     </form>
 </div>

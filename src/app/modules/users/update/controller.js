@@ -16,7 +16,6 @@
                 console.log('Error!', err);
             });
         $scope.update = function() {
-            console.log('data', JSON.stringify($scope.user));
             Users.update(ID, JSON.stringify($scope.user))
                 .then(function() {
                     console.log('Success');

@@ -3,6 +3,7 @@
     <div ng-repeat="user in users"
          class="user-card">
 <h3>{{user.userName}}</h3>
+        <p>{{user.email}}</p>
         <button ui-sref="users.update({id: user.id})">Edit</button>
         <button ng-click="delete(user.id)">Delete</button>
     </div>

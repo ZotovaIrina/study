@@ -10,7 +10,7 @@
         Users.getAllUser().then(function (res) {
             $scope.user.id = res.data.length;
         });
-        $scope.SubmitUser = function() {
+        $scope.create = function() {
             console.log('data', JSON.stringify($scope.user));
             Users.create(JSON.stringify($scope.user))
                 .then(function() {

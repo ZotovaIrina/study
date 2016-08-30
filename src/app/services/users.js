@@ -19,11 +19,11 @@
         };
 
         this.create = function (user) {
-            return $http.post(SERVICE_BASE_URL, user, {headers: {"Content-Type": 'application/json'});
+            return $http.post(SERVICE_BASE_URL, user, {headers: {'Content-Type': 'application/json'}});
         };
 
         this.update = function (id, user) {
-            return $http.put(SERVICE_BASE_URL + '/' + id, user);
+            return $http.put(SERVICE_BASE_URL + '/' + id, user, {headers: {'Content-Type': 'application/json'}});
         };
 
         this.delete = function (id) {
