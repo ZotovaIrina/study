@@ -19,7 +19,7 @@
         };
 
         this.create = function (user) {
-            return $http.post(SERVICE_BASE_URL, user);
+            return $http.post(SERVICE_BASE_URL, user, {headers: {"Content-Type": 'application/json'});
         };
 
         this.update = function (id, user) {
