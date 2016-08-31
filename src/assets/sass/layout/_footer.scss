@@ -1,0 +1,44 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 1rem 0;
+}
+
+.footer-volume {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+.footer-button {
+  font-size: 2rem;
+  padding: 1.3rem;
+}
+
+.footer-icon {
+  height: 3.5rem;
+  vertical-align: bottom;
+}
+
+.volume-icon {
+  font-size: 3.5rem;
+}
+
+#volume-container {
+  display: flex;
+  height: 4rem;
+  width: 55vw;
+  border: 1px solid white;
+}
+
+#volume-scale {
+  height: 1px;
+  width: 55vw;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: auto;
+}
+
+
+

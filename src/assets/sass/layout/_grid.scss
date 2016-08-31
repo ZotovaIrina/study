@@ -1,0 +1,28 @@
+html {
+  font-size: 2vw;
+  height: 100vh;
+}
+
+
+body {
+  display: block;
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2rem 0 2rem 0;
+}
+
+.padding {
+  padding: 0 2rem;
+}

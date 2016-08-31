@@ -1,21 +1,72 @@
-<div>
-    <header>
-        <div>
+<div class="container">
+    <header class="color-light header-container">
+        <button class="color-light clear-button header-button">
             Settings
-        </div>
-        <div>
+        </button>
+        <div class="header-title">
             Guitar Practice
         </div>
-        <div>
+        <button class="color-light clear-button header-button">
             Setlists
-        </div>
+        </button>
     </header>
 
-    <div>
-
+    <div class="color-primary content-container">
+        <div class="message">
+            10 minutes so far this week
+        </div>
+        <div class="padding">
+            <div class="arrow-container">
+                <i class="material-icons guitar-arrow">keyboard_arrow_left</i>
+                <div class="guitar-play-container">
+                    <i class="material-icons guitar-play">play_arrow</i>
+                </div>
+                <i class="material-icons guitar-arrow">keyboard_arrow_right</i>
+            </div>
+            <div class="song-container">
+                <h3 id="song-title">Another Love Song</h3>
+                <p id="song-description">Queens of the Stone Age</p>
+            </div>
+        </div>
+        <div id="song-control-controller">
+            <div id="reply-array">
+                <img src="./assets/fonts/Reply Arrow-64.png">
+                <p>5</p>
+            </div>
+            <button class="clear-button color-primary">
+                Delete markers
+            </button>
+            <div id="forward-array">
+                <img src="./assets/fonts/Forward Arrow-64.png">
+                5
+            </div>
+        </div>
     </div>
 
-    <footer>
+    <footer class="color-dark footer-container">
+        <div class="row">
+            <button CLASS="color-dark clear-button footer-button">
+                SLOW
+            </button>
+            <button class="color-primary block-button footer-button">
+                <img src="./assets/fonts/Infinity-48.png"
+                     class="footer-icon">
+                SETLIST
+            </button>
+            <button class="color-primary block-button footer-button">
+                COUNT
+            </button>
+        </div>
+        <div class="footer-volume">
+            <i class="material-icons volume-icon">volume_mute</i>
+            <div id="volume-container">
+                <div id="volume-cycle"></div>
+                <div id="volume-scale"></div>
+            </div>
+            <i class="material-icons volume-icon">volume_up</i>
+            <i class="material-icons volume-icon">airplay</i>
+        </div>
+
 
     </footer>
 

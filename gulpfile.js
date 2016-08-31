@@ -48,7 +48,7 @@ requireTask('copy:template', './gulpTask/copy', {
     }
 });
 requireTask('copy:static', './gulpTask/copy', {
-    src: './src/assets/**/*.{json,jpg}',
+    src: './src/assets/**/*.{json,jpg,png}',
     dest: './public/www/assets'
 });
 
@@ -96,12 +96,12 @@ gulp.task('build:min', gulp.series(
 
 gulp.task('public', gulp.series(
     'clean',
-    gulp.parallel('sass', 'build', 'copy:template', 'bower')
+    gulp.parallel('sass', 'build', 'copy:template', 'copy:static', 'bower')
 ));
 
 gulp.task('public:min', gulp.series(
     'clean',
-    gulp.parallel('sass:min', 'build:min', 'copy:template', 'bower'),
+    gulp.parallel('sass:min', 'build:min', 'copy:template', 'copy:static', 'bower'),
     'htmlreplace'
 ));
 

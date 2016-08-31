@@ -1,0 +1,63 @@
+.message {
+  display: flex;
+  justify-content: center;
+  background-color: ($dark-color+$primary-color)/2;
+  color: $light-color;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+.arrow-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem 0 2rem 0;
+}
+
+.guitar-arrow {
+  font-size: 8rem;
+  margin:auto 0;
+}
+
+.guitar-play {
+  position: relative;
+  top: 2rem;
+  left: 2rem;
+  font-size: 8rem;
+}
+
+.guitar-play-container {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  border: 1px solid $light-color;
+  border-radius: 6rem;
+}
+
+.song-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0 2rem 0;
+}
+
+#song-title {
+  font-family: $header-font;
+  margin: auto;
+}
+
+#song-description {
+  margin: 0 auto;
+}
+
+#song-control-controller {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#reply-array, #forward-array{
+  width: 4rem;
+  height: 4rem;
+}
