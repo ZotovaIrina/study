@@ -11,22 +11,20 @@
         </button>
     </header>
 
-    <div class="color-primary content-container">
+    <div class="color-primary column content-container">
         <div id="message">
             10 minutes so far this week
         </div>
-        <div class="padding">
-            <div class="arrow-container">
-                <i class="material-icons guitar-arrow">keyboard_arrow_left</i>
-                <div class="guitar-play-container">
-                    <i class="material-icons guitar-play">play_arrow</i>
-                </div>
-                <i class="material-icons guitar-arrow">keyboard_arrow_right</i>
+        <div class="arrow-container">
+            <i class="material-icons guitar-arrow">keyboard_arrow_left</i>
+            <div class="guitar-play-container">
+                <i class="material-icons guitar-play">play_arrow</i>
             </div>
-            <div class="song-container">
-                <h3 id="song-title">Another Love Song</h3>
-                <p id="song-description">Queens of the Stone Age</p>
-            </div>
+            <i class="material-icons guitar-arrow">keyboard_arrow_right</i>
+        </div>
+        <div class="song-container">
+            <h3 id="song-title">Another Love Song</h3>
+            <p id="song-description">Queens of the Stone Age</p>
         </div>
         <div id="progress-bar-container"
              class="padding">
@@ -35,8 +33,6 @@
             <i id="trending-flat-2"
                class="fa fa-long-arrow-down trending-flat" aria-hidden="true"></i>
             <div id="progress-bar">
-
-
                 <div id="progress-bar-fill"></div>
                 <div id="progress-bar-line"></div>
             </div>
@@ -57,7 +53,7 @@
         </div>
     </div>
 
-    <footer class="color-dark footer-container">
+    <footer class="color-dark column">
         <div class="row">
             <button CLASS="color-dark clear-button footer-button">
                 SLOW
@@ -71,17 +67,17 @@
                 COUNT
             </button>
         </div>
-        <div class="footer-volume">
+        <div class="row footer-volume">
             <i class="material-icons volume-icon">volume_mute</i>
             <div id="volume-container">
-            <div id="volume-fill"></div>
-            <div id="volume-cycle"></div>
-            <div id="volume-scale"></div>
+                <div id="volume-cycle"></div>
+                <div id="volume-scale">
+                    <div id="volume-fill"></div>
+                </div>
             </div>
             <i class="material-icons volume-icon">volume_up</i>
             <i class="material-icons volume-icon">airplay</i>
         </div>
-
 
     </footer>
 

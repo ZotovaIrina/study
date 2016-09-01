@@ -88,7 +88,6 @@
 }
 
 .trending-flat {
- // transform: rotate(90deg);
   position: absolute;
   top: -2rem;
 }
@@ -118,13 +117,13 @@
   background-color: $light-color;
   opacity: 0.5;
   height: 8rem;
-  width: 20vw;
+  width: 25%;
 }
 
 #progress-bar-line {
   position: absolute;
   height: 10rem;
-  left: 20vw;
+  left: 25%;
   top: -1rem;
   border-right: 2px solid $light-color;
 }
