@@ -26,6 +26,7 @@
 }
 
 #volume-container {
+  position: relative;
   display: flex;
   height: 4rem;
   width: 55vw;
@@ -38,6 +39,23 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.5);
   margin: auto;
+}
+
+#volume-cycle {
+  width: 3rem;
+  height: 3rem;
+  background-color: $light-color;
+  border-radius: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 30vw;
+}
+
+#volume-fill {
+  width: 35vw;
+  position: absolute;
+  border-top: 4px solid;
+  top: 1.5rem;
 }
 
 

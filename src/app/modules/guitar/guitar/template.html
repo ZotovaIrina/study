@@ -12,7 +12,7 @@
     </header>
 
     <div class="color-primary content-container">
-        <div class="message">
+        <div id="message">
             10 minutes so far this week
         </div>
         <div class="padding">
@@ -28,17 +28,29 @@
                 <p id="song-description">Queens of the Stone Age</p>
             </div>
         </div>
-        <div id="song-control-controller">
-            <div id="reply-array">
+        <div id="progress-bar-container"
+             class="padding">
+            <i id="trending-flat-1"
+               class="material-icons trending-flat">trending_flat</i>
+            <i id="trending-flat-2"
+                    class="material-icons trending-flat">trending_flat</i>
+            <div id="progress-bar">
+                <div id="progress-bar-fill"></div>
+                <div id="progress-bar-line"></div>
+            </div>
+        </div>
+        <div id="song-control-controller"
+             class="padding">
+            <div class="reply-array">
                 <img src="./assets/fonts/Reply Arrow-64.png">
                 <p>5</p>
             </div>
             <button class="clear-button color-primary">
                 Delete markers
             </button>
-            <div id="forward-array">
+            <div class="forward-array">
                 <img src="./assets/fonts/Forward Arrow-64.png">
-                5
+                <p>5</p>
             </div>
         </div>
     </div>
@@ -60,6 +72,7 @@
         <div class="footer-volume">
             <i class="material-icons volume-icon">volume_mute</i>
             <div id="volume-container">
+                <div id="volume-fill"></div>
                 <div id="volume-cycle"></div>
                 <div id="volume-scale"></div>
             </div>

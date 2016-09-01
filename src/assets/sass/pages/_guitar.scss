@@ -1,4 +1,4 @@
-.message {
+#message {
   display: flex;
   justify-content: center;
   background-color: ($dark-color+$primary-color)/2;
@@ -57,7 +57,78 @@
   justify-content: space-between;
 }
 
-#reply-array, #forward-array{
-  width: 4rem;
-  height: 4rem;
+#song-control-controller button {
+  font-family: $primary-font;
+  font-size: 2rem;
 }
+
+.reply-array, .forward-array{
+  width: 6rem;
+  height: 6rem;
+}
+
+.reply-array img, .forward-array img {
+  position: absolute;
+  width: 6rem;
+}
+
+.reply-array p {
+  margin: 0;
+  position: relative;
+  top: 2.5rem;
+  left: 2.5rem;
+}
+
+.forward-array p {
+  margin: 0;
+  position: relative;
+  top: 2.5rem;
+  left: 1.5rem;
+}
+
+.trending-flat {
+  -moz-transform: rotate(90deg); /* Для Firefox */
+  -ms-transform: rotate(90deg); /* Для IE */
+  -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
+  -o-transform: rotate(90deg); /* Для Opera */
+  transform: rotate(90deg);
+  position: absolute;
+  top: -3rem;
+}
+
+#trending-flat-1 {
+  left: 35vw;
+}
+
+#trending-flat-2 {
+  left: 45vw;
+}
+
+#progress-bar-container {
+  display: flex;
+  position: relative;
+}
+
+#progress-bar {
+  position: relative;
+  height: 8rem;
+  width: 100%;
+  border: 1px solid $light-color;
+}
+
+#progress-bar-fill {
+  position: absolute;
+  background-color: $light-color;
+  opacity: 0.5;
+  height: 8rem;
+  width: 20vw;
+}
+
+#progress-bar-line {
+  position: absolute;
+  height: 10rem;
+  left: 20vw;
+  top: -1rem;
+  border-right: 2px solid $light-color;
+}
+
