@@ -48,7 +48,7 @@ requireTask('copy:template', './gulpTask/copy', {
     }
 });
 requireTask('copy:static', './gulpTask/copy', {
-    src: './src/assets/**/*.{json,jpg,png}',
+    src: ['./src/assets/**/*.*', './src/assets/**/*.scss'],
     dest: './public/www/assets'
 });
 

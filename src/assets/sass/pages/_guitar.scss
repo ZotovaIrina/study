@@ -24,15 +24,15 @@
   position: relative;
   top: 2rem;
   left: 2rem;
-  font-size: 8rem;
+  font-size: 12rem;
 }
 
 .guitar-play-container {
   position: relative;
-  width: 12rem;
-  height: 12rem;
+  width: 16rem;
+  height: 16rem;
   border: 1px solid $light-color;
-  border-radius: 6rem;
+  border-radius: 8rem;
 }
 
 .song-container {
@@ -55,6 +55,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 #song-control-controller button {
@@ -87,13 +88,9 @@
 }
 
 .trending-flat {
-  -moz-transform: rotate(90deg); /* Для Firefox */
-  -ms-transform: rotate(90deg); /* Для IE */
-  -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
-  -o-transform: rotate(90deg); /* Для Opera */
-  transform: rotate(90deg);
+ // transform: rotate(90deg);
   position: absolute;
-  top: -3rem;
+  top: -2rem;
 }
 
 #trending-flat-1 {
