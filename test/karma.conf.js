@@ -10,20 +10,32 @@ module.exports = function(config) {
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jasmine'],
 
-        files: [
-            './public/www/vendor.min.js',
-            './public/www/build.js',
-            './bower_components/angular-mocks/angular-mocks.js',
-            './test/unit/**/*.js'
-        ],
+
 
         // list of files to exclude
         exclude: [
             'test/protractor.conf.js', 'test/e2e/*.js'
         ],
-// preprocess matching files before serving them to the browser
+        // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
+            'public/www/template/**/*.html': ['ng-html2js']
+
+        },
+
+        files: [
+            './public/www/vendor.min.js',
+            './public/www/build.js',
+            'public/www/template/**/*.html',
+            './bower_components/angular-mocks/angular-mocks.js',
+            './test/unit/**/*.js'
+        ],
+
+        ngHtml2JsPreprocessor: {
+            // strip this from the file path
+            stripPrefix: 'public/',
+            //prependPrefix: '',
+            moduleName: 'templates'
         },
 
         // test results reporter to use
@@ -42,7 +54,9 @@ module.exports = function(config) {
         logLevel: config.LOG_INFO,
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+        pattern: './public/www/build.js',
+        included: false,
+        watch: true,
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['Chrome'],

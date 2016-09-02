@@ -10,6 +10,7 @@
         Users.getAllUser()
             .then(function (res) {
                 $scope.users = res.data;
+                //$scope.users = ['string', 'string1'];
             })
             .catch(function (err) {
                 console.log('Error! ', err);
@@ -25,8 +26,8 @@
                             $scope.users = res.data;
                         });
                 })
-                .catch(function(err){
-                    console.log('Error!', err);
+               .catch(function(err){
+                   console.log('Error!', err);
                 });
         };
 
