@@ -24,7 +24,7 @@
             .state('users.create', {
                 url: '/users/create',
                 views: {
-                    'content': {
+                    'content@': {
                         templateUrl: './template/modules/users/create/template.html',
                         controller: 'CreateCtrl'
                     }
@@ -34,7 +34,7 @@
             .state('users.update', {
                 url: '/users/update/:id',
                 views: {
-                    'content': {
+                    'content@': {
                         templateUrl: './template/modules/users/update/template.html',
                         controller: 'UpdateCtrl'
                     }

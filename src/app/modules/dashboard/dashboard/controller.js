@@ -7,7 +7,6 @@
 
     function Dashboard($scope) {
 
-        console.log('DashboardCtrl');
         $scope.password = '';
         $scope.grade = function() {
             var size = $scope.password.length;

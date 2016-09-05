@@ -1,13 +1,19 @@
 <div>
     <h1>List of users</h1>
     <div ng-repeat="user in users"
-         class="user-card">
-<h3>{{user.userName}}</h3>
+         class="user-card"
+         ng-show="loadData">
+        <h3>{{user.userName}}</h3>
         <p>{{user.email}}</p>
         <button ui-sref="users.update({id: user.id})">Edit</button>
         <button ng-click="delete(user.id)">Delete</button>
     </div>
-    <div>
+    <div ng-show="loadData">
         <button ui-sref="users.create">Add</button>
+    </div>
+    <button ng-click="delete(10)">Test delete</button>
+
+    <div ng-show="!loadData">
+        {{message}}
     </div>
 </div>

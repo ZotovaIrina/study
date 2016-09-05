@@ -6,13 +6,18 @@
         .controller('UsersCtrl', UsersCtrl);
 
     function UsersCtrl($scope, Users) {
+        $scope.loadData = false;
+        $scope.message = 'Loading...';
         $scope.users = [];
+
         Users.getAllUser()
             .then(function (res) {
+                $scope.loadData = true;
                 $scope.users = res.data;
-                //$scope.users = ['string', 'string1'];
             })
             .catch(function (err) {
+                $scope.loadData = false;
+                $scope.message = 'Error ' + err.status + ' ' + err.statusText;
                 console.log('Error! ', err);
             });
 
@@ -23,11 +28,15 @@
                     console.log('Success', res);
                     Users.getAllUser()
                         .then(function (res) {
+                            console.log('get user list after delete');
+                            $scope.loadData = true;
                             $scope.users = res.data;
                         });
                 })
-               .catch(function(err){
-                   console.log('Error!', err);
+                .catch(function (err) {
+                    $scope.loadData = false;
+                    console.log('Error!', err);
+                    $scope.message = 'Error ' + err.status + ' ' + err.statusText;
                 });
         };
 

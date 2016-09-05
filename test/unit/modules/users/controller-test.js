@@ -12,78 +12,129 @@ describe('UsersCtrl test', function () {
         $templateCache.put('./template/modules/navigation/template.html', '');
     }));
 
-    // var $scope;
-    // var $q;
-    // var deferred;
-    // beforeEach(inject(function($controller, _$rootScope_, _$q_, Users) {
-    //     $q = _$q_;
-    //     $scope = _$rootScope_.$new();
-    //
-    //     // We use the $q service to create a mock instance of defer
-    //     deferred = _$q_.defer();
-    //
-    //     // Use a Jasmine Spy to return the deferred promise
-    //     spyOn(Users, 'getAllUser').and.returnValue([{
-    //                     "id": 0,
-    //                     "userName": "User One",
-    //                     "email": "111@gmail.com"
-    //                 },
-    //                     {
-    //                         "id": 1,
-    //                         "userName": "User Two",
-    //                         "email": "222@gmail.com"
-    //                     }]);
-    //
-    //     // Init the controller, passing our spy service instance
-    //     $controller('UsersCtrl', {
-    //         $scope: $scope,
-    //         Users: Users
-    //     });
-    // }));
+    var userList = [{
+        "id": 0,
+        "userName": "User One",
+        "email": "111@gmail.com"
+    },
+        {
+            "id": 1,
+            "userName": "User Two",
+            "email": "222@gmail.com"
+        }];
 
     var UsersCtrl, scope, $httpBackend, $q;
+
 
     beforeEach(inject(function ($controller, _$httpBackend_, _$q_, $rootScope, Users) {
 
         $httpBackend = _$httpBackend_;
-
-        // react on that request
-        $httpBackend.when('GET', 'http://localhost:2500/users').respond(
-            [{
-                "id": 0,
-                "userName": "User One",
-                "email": "111@gmail.com"
-            },
-                {
-                    "id": 1,
-                    "userName": "User Two",
-                    "email": "222@gmail.com"
-                }]
-        );
+        // $httpBackend
+        //     .whenDELETE('http://localhost:2500/users/10')
+        //     .respond(function () {
+        //         return [200, 'ok'];
+        //     });
+        $httpBackend
+            .whenGET('http://localhost:2500/users')
+            .respond(function () {
+                return [200, userList, 'ok'];
+            });
 
         scope = $rootScope.$new();
         UsersCtrl = $controller('UsersCtrl', {
             $scope: scope, Users: Users
         });
-        $httpBackend.flush();
+
 
     }));
 
-    it('should have the correct data order in the users', function () {
-        console.log(scope.users);
+    // beforeEach(function (done) {
+    //     window.jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+    //     setTimeout(function () {
+    //         console.log('inside timeout');
+    //         done();
+    //     }, 500);
+    // });
+
+
+    // it('get Users', function(done) {
+    //     inject(function(Users) {
+    //         Users.getAllUser()
+    //             .then(function(res) {
+    //
+    //                 $httpBackend.flush();
+    //                 console.log('scope.users', res);
+    //                 expect(scope.users.length).toBe(0);
+    //             });
+    //         done();
+    //     });
+    //
+    // });
+
+    it('get list of users', function () {
+        $httpBackend
+            .whenGET('http://localhost:2500/users')
+            .respond(function () {
+                return [200, userList, 'ok'];
+            });
+        console.log('scope.users', scope.users);
+        expect(scope.loadData).toBe(false);
+        expect(scope.users.length).toBe(0);
+        $httpBackend.flush();
+        console.log('scope.users', scope.users);
+        expect(scope.loadData).toBe(true);
         expect(scope.users[0].userName).toBe('User One');
         expect(scope.users[1].id).toBe(1);
         expect(scope.users[1].email).toBe('222@gmail.com');
+
     });
 
-    it('delete user', function () {
-        console.log(scope.users);
+
+    it('delete user success', function () {
+        console.log('scope.users', scope.users);
+        $httpBackend
+            .expectGET('http://localhost:2500/users')
+            .respond(function () {
+                return [200, userList, {}, 'ok'];
+            });
+        $httpBackend
+            .expectDELETE('http://localhost:2500/users/10')
+            .respond(function () {
+                return [200, '', {}, 'ok'];
+            });
+
+        expect(scope.users.length).toBe(0);
+        spyOn(scope, 'delete').and.callThrough();
+        scope.delete(10);
+        expect(scope.delete).toHaveBeenCalled();
+        $httpBackend.flush(0);
+        console.log('$httpBackend.flush(0);');
+        expect(scope.loadData).toBe(false);
+        console.log('not user get');
+        $httpBackend.flush();
+        expect(scope.loadData).toBe(true);
         expect(scope.users.length).toBe(2);
-        spyOn(scope, 'delete');
-        scope.delete(3);
-        console.log(scope.users);
-        expect(scope.delete).toHaveBeenCalledWith(0);
-        //expect(scope.users.length).toBe(1);
+        console.log('scope.users', scope.users);
     });
+
+    // it('delete user unsuccess', function () {
+    //     $httpBackend
+    //         .expect('DELETE', /\/users\/(.+)/, undefined, undefined, ['id'])
+    //         .respond(function() {
+    //             return [404, 'response body', {}, 'Not found'];
+    //         });
+    //     spyOn(scope, 'delete').and.callThrough();
+    //     scope.delete({id: 5});
+    //     expect(scope.delete).toHaveBeenCalled();
+    //     $httpBackend.flush();
+    //     expect(scope.loadData).toBe(false);
+    //     expect(scope.message).toBe('Error 404 Not found');
+    // });
+
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
+
 
 });
