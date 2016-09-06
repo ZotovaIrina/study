@@ -1,6 +1,6 @@
 // Karma configuration
 
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -11,7 +11,6 @@ module.exports = function(config) {
         frameworks: ['jasmine'],
 
 
-
         // list of files to exclude
         exclude: [
             'test/protractor.conf.js', 'test/e2e/*.js'
@@ -19,8 +18,8 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'public/www/template/**/*.html': ['ng-html2js']
-
+            'public/www/template/**/*.html': ['ng-html2js'],
+            './public/www/build.js': ['coverage']
         },
 
         files: [
@@ -42,19 +41,25 @@ module.exports = function(config) {
         // possible values: 'dots', 'progress'
         // available reporters:  https://npmjs.org/browse/keyword/karma-reporter
         //report
-        reporters: ['progress', 'html'],
+        reporters: [
+            'dots',
+            'coverage',
+            'html'],
 
+        coverageReporter: {
+            dir: './test/report/coverage/',
+            type: 'html'
+        },
         htmlReporter: {
-            outputFile: 'tests/units.html',
+            outputFile: './test/report/unit/units.html',
 
             // Optional
-            pageTitle: 'Unit Tests',
-            subPageTitle: 'A sample project description',
+            pageTitle: 'Study Application',
+            subPageTitle: 'Unit Tests Report',
             groupSuites: true,
             useCompactStyle: true,
             useLegacyStyle: true
         },
-
         // web server port
         port: 9876,
 
@@ -72,26 +77,6 @@ module.exports = function(config) {
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['Chrome'],
-
-        // you can define custom flags
-        customLaunchers: {
-            'PhantomJS_custom': {
-                base: 'PhantomJS',
-                options: {
-                    windowName: 'my-window',
-                    settings: {
-                        webSecurityEnabled: false
-                    }
-                },
-                flags: ['--load-images=true'],
-                debug: true
-            }
-        },
-
-        phantomjsLauncher: {
-            // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
-            exitOnResourceError: true
-        },
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
