@@ -7,16 +7,13 @@ module.exports = function (config) {
         basePath: '../',
 
         // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jasmine'],
-
 
         // list of files to exclude
         exclude: [
             'test/protractor.conf.js', 'test/e2e/*.js'
         ],
         // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             'public/www/template/**/*.html': ['ng-html2js'],
             './public/www/build.js': ['coverage']
@@ -31,16 +28,11 @@ module.exports = function (config) {
         ],
 
         ngHtml2JsPreprocessor: {
-            // strip this from the file path
             stripPrefix: 'public/',
-            //prependPrefix: '',
             moduleName: 'templates'
         },
 
         // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters:  https://npmjs.org/browse/keyword/karma-reporter
-        //report
         reporters: [
             'dots',
             'coverage',
@@ -52,7 +44,6 @@ module.exports = function (config) {
         },
         htmlReporter: {
             outputFile: './test/report/unit/units.html',
-
             // Optional
             pageTitle: 'Study Application',
             subPageTitle: 'Unit Tests Report',
@@ -65,7 +56,6 @@ module.exports = function (config) {
 
         // enable / disable colors in the output (reporters and logs)
         colors: true,
-
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,

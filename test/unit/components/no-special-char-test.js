@@ -1,7 +1,6 @@
 describe('Unit testing no-special-char directive', function () {
 
     var $compile,
-        $rootScope,
         $scope,
         element,
         form;
@@ -18,7 +17,6 @@ describe('Unit testing no-special-char directive', function () {
 
     beforeEach(inject(function (_$compile_, _$rootScope_) {
         $compile = _$compile_;
-        $rootScope = _$rootScope_;
         $scope = _$rootScope_.$new();
 
         element = angular.element(

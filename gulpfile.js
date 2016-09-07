@@ -77,6 +77,8 @@ requireTask('jsonServer', './gulpTask/jsonServer', {
     port: 2500
 });
 
+requireTask('karma', './gulpTask/karma', {});
+
 gulp.task('watch', function () {
     gulp.watch(['./src/index.html', './src/app/**/*.html'], gulp.series('copy:template'));
     gulp.watch('./src/app/**/*.js', gulp.series('build'));
