@@ -64,7 +64,7 @@ describe('UsersCtrl test users list', function () {
 
     it('delete user with success response', function () {
         $httpBackend
-            .expectDELETE('http://localhost:2500/users/'+id)
+            .expectDELETE('http://localhost:2500/users/' + id)
             .respond(function () {
                 return [200, '', {}, 'ok'];
             });
@@ -80,7 +80,7 @@ describe('UsersCtrl test users list', function () {
 
     it('delete user with unsuccess response', function () {
         $httpBackend
-            .expectDELETE('http://localhost:2500/users/'+id)
+            .expectDELETE('http://localhost:2500/users/' + id)
             .respond(function () {
                 return [404, 'response body', {}, 'Not found'];
             });
@@ -98,5 +98,3 @@ describe('UsersCtrl test users list', function () {
     });
 
 });
-
-

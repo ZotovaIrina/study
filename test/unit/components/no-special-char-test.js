@@ -20,7 +20,7 @@ describe('Unit testing no-special-char directive', function () {
         $scope = _$rootScope_.$new();
 
         element = angular.element(
-            '<form name="createForm"><input type="text" name="userName" ng-model="user.userName" no-special-char></form>'
+            '<form name="createForm"><input type="text" id="sandbox" name="userName" ng-model="user.userName" no-special-char></form>'
         );
         $scope.user = { userName: '' };
         $compile(element)($scope);
@@ -36,7 +36,7 @@ describe('Unit testing no-special-char directive', function () {
 
     it('delete special character', function() {
         form.userName.$setViewValue('User 105$%()?{}#');
-        $scope.$digest();
+        $scope.$apply();
         expect($scope.user.userName).toEqual('User 105');
     });
 

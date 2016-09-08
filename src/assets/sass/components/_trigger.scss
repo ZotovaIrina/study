@@ -1,0 +1,26 @@
+#trigger-container {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 6rem;
+  height: 1rem;
+  background-color: $light-color;
+}
+
+#trigger {
+  position: absolute;
+  top: 0;
+  width: 3rem;
+  height: 1rem;
+  background-color: $dark-color;
+}
+
+.trigger-positive {
+  left: 3rem;
+  transition: 0.5s;
+}
+
+.trigger-negative {
+  left: 0;
+  transition: 0.5s;
+}
