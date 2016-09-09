@@ -1,0 +1,15 @@
+<div class='user-card'>
+    <div class='card-header'>{{userName}}</div>
+    <button ng-if="!ctrl.expanded"
+            ng-click="ctrl.expand()">
+        More...
+    </button>
+    <button ng-if="ctrl.expanded"
+            ng-click="ctrl.collapse()">
+        Less
+    </button>
+    <div class="content"></div>
+    <!--<div class='card-content'-->
+         <!--ng-transclude>-->
+    <!--</div>-->
+</div>

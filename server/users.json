@@ -3,17 +3,20 @@
     {
       "id": 0,
       "userName": "User One",
-      "email": "111@gmail.com"
+      "email": "111@gmail.com",
+      "notification": true
     },
     {
       "id": 1,
       "userName": "User Two",
-      "email": "222@gmail.com"
+      "email": "222@gmail.com",
+      "notification": false
     },
     {
       "id": 2,
       "userName": "User Tree",
-      "email": "333@gmail.com"
+      "email": "333@gmail.com",
+      "notification": true
     },
     {
       "id": 3,
@@ -37,11 +40,6 @@
       "email": "666@gmail.com",
       "notification": true,
       "pets": true
-    },
-    {
-      "id": 7,
-      "userName": 86498,
-      "email": "777@777"
     }
   ]
 }

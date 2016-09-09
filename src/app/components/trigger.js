@@ -17,7 +17,9 @@
                     if(scope.triggerValue === true) {
                         scope.answer = 'Yes';
                         scope.position = 'trigger-positive';
-                    } else {
+                    } else if(scope.triggerValue === undefined) {
+                        scope.triggerValue = true;
+                    } else{
                         scope.answer = 'No';
                         scope.position = 'trigger-negative';
                     }

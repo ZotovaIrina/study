@@ -15,11 +15,6 @@
                 onSubmit: '&'
             },
             link: function (scope, element, attr) {
-                console.log('user', scope.user);
-
-                scope.console =function () {
-                    console.log('Click', scope.user);
-                };
             }
         };
     }
