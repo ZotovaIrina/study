@@ -1,45 +1,9 @@
 <div>
     <div>
         <h2>Add new user</h2>
-        <form name="createForm" ng-submit="create()">
-            <label>
-                <input type="text"
-                       name="userName"
-                       ng-model="user.userName"
-                       placeholder="User Name"
-                       no-special-char
-                       required>
-                User Name
-            </label>
-            <br>
-            <span class="error"
-                  ng-show="createForm.userName.$error.required && createForm.userName.$dirty">
-            Required user Name
-        </span>
-            <br>
-            <label>
-                <input type="email"
-                       name="email"
-                       ng-model="user.email"
-                       placeholder="E-mail"
-                       required>
-                E-mail
-            </label>
-            <br>
-            <span class="error"
-                  ng-show="createForm.email.$error.required && createForm.email.$dirty">
-            Required E-mail
-        </span>
-            <span class="error"
-                  ng-show="createForm.email.$error.email && createForm.email.$touched">
-            Not valid email
-        </span>
-            <br>
-            <button ng-disabled="createForm.$invalid"
-                    type="submit">Submit
-            </button>
-        </form>
+        <user-form data="user"
+                   on-submit="create()"
+                   submit-text="Create">
+        </user-form>
     </div>
-
-    <questionnaire></questionnaire>
 </div>

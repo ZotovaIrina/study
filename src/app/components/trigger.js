@@ -24,7 +24,6 @@
                 });
 
                 scope.trigger = function () {
-                    console.log('click!!!!!!!');
                     scope.triggerValue = !scope.triggerValue;
                 };
 

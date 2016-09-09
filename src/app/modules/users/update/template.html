@@ -1,42 +1,7 @@
-<div xmlns="http://www.w3.org/1999/html">
-    <h1>Update user</h1>
-    <form name="updateForm" ng-submit="update()">
-        <label>
-            <input type="text"
-                   name="userName"
-                   ng-model="user.userName"
-                   placeholder="User Name"
-                   no-special-char
-                   required>
-            User Name
-        </label>
-        <br>
-        <span class="error"
-              ng-show="updateForm.userName.$error.required">
-            Required user Name
-        </span>
-        <br>
-        <label>
-            <input type="email"
-                   name="email"
-                   ng-model="user.email"
-                   placeholder="E-mail"
-                   required>
-            E-mail
-        </label>
-        <br>
-        <span class="error"
-              ng-show="updateForm.email.$error.required">
-            Required E-mail
-        </span>
-        <span class="error" ng-show="updateForm.email.$error.email">
-            Not valid email
-        </span>
-        <br>
-        <button ng-disabled="updateForm.$invalid"
-                type="submit">Update
-        </button>
-    </form>
-
-    <questionnaire></questionnaire>
+<div>
+    <h1>Update user {{user.userName}}</h1>
+    <user-form data="user"
+               on-submit="update()"
+               submit-text="Update">
+    </user-form>
 </div>

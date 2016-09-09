@@ -1,0 +1,44 @@
+<div>
+    <form name="userForm">
+        <label>
+            <input type="text"
+                   name="userName"
+                   ng-model="user.userName"
+                   placeholder="User Name"
+                   no-special-char
+                   required>
+            User Name
+        </label>
+        <br>
+        <span class="error"
+              ng-show="userForm.userName.$error.required && userForm.userName.$dirty">
+            Required user Name
+        </span>
+        <br>
+        <label>
+            <input type="email"
+                   name="email"
+                   ng-model="user.email"
+                   placeholder="E-mail"
+                   required>
+            E-mail
+        </label>
+        <br>
+        <span class="error"
+              ng-show="userForm.email.$error.required && userForm.email.$dirty">
+            Required E-mail
+        </span>
+        <span class="error" ng-show="userForm.email.$error.email&& userForm.email.$touched">
+            Not valid email
+        </span>
+        <br>
+        <label>Do you want to get notifications?
+            <trigger trigger-value="user.notification"></trigger>
+        </label>
+
+    </form>
+    <button ng-disabled="userForm.$invalid"
+            type="submit"
+            ng-click="onSubmit()">{{submit}}
+    </button>
+</div>

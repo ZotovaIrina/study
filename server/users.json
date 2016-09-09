@@ -27,13 +27,21 @@
     },
     {
       "id": 5,
+      "notification": false,
       "userName": "New User",
       "email": "new@gmail.com"
     },
     {
       "id": 6,
       "userName": "User Six",
-      "email": "666@gmail.com"
+      "email": "666@gmail.com",
+      "notification": true,
+      "pets": true
+    },
+    {
+      "id": 7,
+      "userName": 86498,
+      "email": "777@777"
     }
   ]
 }
