@@ -38,7 +38,7 @@
       "id": 6,
       "userName": "User Six",
       "email": "666@gmail.com",
-      "notification": true,
+      "notification": false,
       "pets": true
     }
   ]

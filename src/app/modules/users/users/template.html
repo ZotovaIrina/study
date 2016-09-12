@@ -1,20 +1,18 @@
 <div>
     <h1>List of users</h1>
-    <!--<div ng-repeat="user in users"-->
-    <!--class="user-card"-->
-    <!--ng-show="loadData">-->
-    <!--<h3>{{user.userName}}</h3>-->
-    <!--<p>{{user.email}}</p>-->
-    <!--<button ui-sref="users.update({id: user.id})">Edit</button>-->
-    <!--<button ng-click="delete(user.id)">Delete</button>-->
-    <!--</div>-->
-    <user-list ng-repeat="user in users"
-               user-name="{{user.userName}}">
-        <p>E-mail: {{user.email}}</p>
-        <p>Notification: {{user.notification}}</p>
-        <button ui-sref="users.update({id: user.id})">Edit</button>
-        <button ng-click="delete(user.id)">Delete</button>
-    </user-list>
+
+    <div >
+        <user-list ng-repeat="user in users"
+                   user-name="{{user.userName}}">
+            <p>E-mail: {{user.email}}</p>
+            <p>Notification: {{user.notification}}</p>
+            <button ui-sref="users.update({id: user.id})">Edit</button>
+            <button ng-click="delete(user.id)">Delete</button>
+        </user-list>
+    </div>
+
+    <!--<user-list items="users"></user-list>-->
+
     <div ng-show="loadData">
         <button ui-sref="users.create">Add</button>
     </div>

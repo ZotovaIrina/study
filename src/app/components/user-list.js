@@ -6,6 +6,7 @@
         .directive('userList', Directive);
 
     function Directive() {
+        var removedElem;
         return {
             restrict: 'E',
             templateUrl: './template/components/user-list.html',
@@ -13,27 +14,39 @@
             scope: {
                 userName: '@'
             },
-            controllerAs: 'ctrl',
-            controller: function ($scope, $element, $transclude) {
-                var ctrl = this;
-                var content = $element.find('.content');
+            link: function (scope, element, attr, ctrl, transclude) {
 
-                ctrl.expand = function() {
-                    $transclude(function(transEl) {
-                        content.append(transEl);
+                var content = element[0].querySelector('.card-content');
+                scope.moreButton = true;
+                angular.element(content.children).remove();
 
+
+                scope.collapse = function () {
+                    angular.element(content.children).remove();
+                    scope.moreButton = true;
+                };
+
+                scope.expand = function () {
+                    transclude(function (clone) {
+                        angular.element(content).append(clone);
+                        scope.moreButton = false;
                     });
-                    ctrl.expanded = true;
                 };
-
-                ctrl.collapse = function() {
-                    content.empty();
-                    ctrl.expanded = false;
-                };
-
 
             }
         };
+
+
+        // return {
+        //     restrict: 'E',
+        //     replace: true,
+        //     scope: {
+        //         items: '='
+        //     },
+        //     templateUrl: './template/components/user-list.html'
+        // };
+
+
     }
 
 })();

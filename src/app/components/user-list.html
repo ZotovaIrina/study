@@ -1,15 +1,26 @@
 <div class='user-card'>
     <div class='card-header'>{{userName}}</div>
-    <button ng-if="!ctrl.expanded"
-            ng-click="ctrl.expand()">
+    <button ng-show="moreButton"
+            ng-click="expand()">
         More...
     </button>
-    <button ng-if="ctrl.expanded"
-            ng-click="ctrl.collapse()">
+    <button ng-show="!moreButton"
+            ng-click="collapse()">
         Less
     </button>
-    <div class="content"></div>
-    <!--<div class='card-content'-->
-         <!--ng-transclude>-->
-    <!--</div>-->
+
+    <div class='card-content'
+         ng-transclude>
+    </div>
 </div>
+
+<!--<div ng-repeat="item in items"-->
+<!--class='user-card'>-->
+<!--<div class='card-header'>{{item.userName}}</div>-->
+<!--<div class='card-content'>-->
+<!--E-mail: {{item.email}}-->
+<!--Notification: {{item.notification}}-->
+<!--</div>-->
+<!--<button ui-sref="users.update({id: item.id})">Edit</button>-->
+<!--<button ng-click="delete(item.id)">Delete</button>-->
+<!--</div>-->
